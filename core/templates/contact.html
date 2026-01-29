@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - Hospital{% endblock %}
+
+{% block content %}
+<!-- EMERGENCY SECTION -->
+<section class="emergency-section text-white">
+  <div class="container text-center">
+    <span class="badge bg-light text-dark mb-3">24 / 7 AVAILABLE</span>
+    <h1 class="fw-bold display-5 mt-3">Emergency Medical Care</h1>
+    <p class="lead mt-3">
+      Immediate assistance when every second counts.
+    </p>
+
+    <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
+      <a href="tel:+2348169755782" class="btn btn-light btn-lg">
+        Call Emergency
+      </a>
+      <a href="#contact" class="btn btn-outline-light btn-lg">
+        Contact Hospital
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- EMERGENCY INFO -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row g-3 text-center">
+      <div class="col-md-4">
+        <div class="info-card">
+          <h5>24/7 Emergency Unit</h5>
+          <p>Fully staffed emergency department day and night.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="info-card">
+          <h5>Ambulance Service</h5>
+          <p>Rapid response ambulances with life-support equipment.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="info-card">
+          <h5>Critical Care</h5>
+          <p>Advanced ICU and trauma facilities available.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="row g-3 align-items-center">
+
+      <!-- Contact Info -->
+      <div class="col-md-5">
+        <h2 class="fw-bold mb-3">Contact Us</h2>
+        <p class="mb-4">
+          Reach out for appointments, emergencies, or general inquiries.
+        </p>
+
+        <p><strong>📍 Address:</strong><br>No 9, Royalland Estate, Lane 6, Lagos State, Nigeria</p>
+        <p><strong>📞 Phone:</strong><br>+234 803 123 4567</p>
+        <p><strong>✉ Email:</strong><br>info@hospital.com</p>
+      </div>
+
+      <!-- Form -->
+      <div class="col-md-7">
+        <div class="contact-card">
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="Your Name">
+              </div>
+              <div class="col-md-6">
+                <input type="email" class="form-control" placeholder="Your Email">
+              </div>
+              <div class="col-12">
+                <input type="text" class="form-control" placeholder="Subject">
+              </div>
+              <div class="col-12">
+                <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-success px-4">
+                  Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,424 @@
+:root {
+  --color-white: #ffffff;
+  /* --color-blue: #0B74DE; */
+  --color-blue: hsl(210, 91%, 75%);
+  --color-green: hsl(145, 63%, 30%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+nav{
+    background-color: var(--color-blue) !important;
+    margin: 0;
+    padding: 0;
+}
+.navbar-brand{
+    color: hsl(145, 63%, 30%) !important;
+    font-weight: 600;
+    font-size: 20px;
+} 
+.dropdown-item:focus, .dropdown-item:hover{
+    background-color: hsl(145, 63%, 30%);
+    color: var(--color-white) !important;
+}
+.dropdown-item{
+    color: var(--color-green) !important;
+    font-weight: 500;
+}
+
+ .hero-section {
+  /* background: linear-gradient(135deg, rgba(13, 253, 41, 0.1), rgba(166, 192, 230, 0.1)), url(/static/hero-section-banner.png); */
+  background: linear-gradient(135deg, #e8f5f011, #f5fbff11), url(/static/hero-section-banner.png);
+  height: 75vh;
+  background-size: cover;
+  background-position: top right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding:0 30px;
+    margin: 0;
+    width: 100%;
+}
+.hero-section h3, .hero-section h2{
+    font-size: 50px !important;
+}
+.hero-section h3{
+    color: var(--color-green);
+}
+.hero-section p{
+    font-size: 20px !important;
+    margin-bottom: 20px !important;
+}
+.hero-section-content{
+  flex: 1;
+}
+.btn{
+    background-color: var(--color-green);
+    color: var(--color-white);
+    border: solid 1px hsl(145, 63%, 29%);
+    /* border: solid 1px #1b7942; */
+    
+    border-radius: 5px !important;
+    transition: 1.5s ease-in-out !important;
+}
+.btn:hover{
+    background-color: hsl(145, 63%, 20%);
+    color: var(--color-white);
+} 
+.btn-white{
+    background-color: var(--color-white);
+    color: var(--color-green);
+}
+.hero-highlight-container{
+    width: 95%;
+    margin: auto;
+}
+.hero-highlight h5{
+    color: var(--color-green);
+}
+
+
+/* Services */
+.services{
+    background-color: hsl(210, 91%, 99%);
+    padding: 50px 0 !important;
+}
+.serives-container{
+    width: 90% !important;
+    margin: auto !important;
+}
+.services h1{
+    font-size: 40px !important;
+    color: var(--color-green);
+    margin-bottom: 10px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Appointment */
+.appointment-page{
+    padding: 30px;
+    background-color: white;
+    max-width: 650px;
+    border-radius: 10px;
+    margin-top: 5em;
+}
+.appointment-page h1{
+    color: var(--color-green);
+    margin-bottom: 20px !important;
+    text-align: center;
+}
+.appointment-page h2{
+    color: var(--color-green);
+    margin-bottom: 20px !important;
+    text-align: center;
+}
+.appointment-page .form-control, .appointment-page .form-select{
+    border: solid 1px hsl(145, 63%, 30%);
+    box-shadow: none !important;
+}
+.appointment-page .form-control:hover, .appointment-page .form-select:hover{
+    border: solid 2px var(--color-green);
+    box-shadow: none !important;
+}
+
+.appointment-page .form-control:focus, .appointment-page .form-select:focus{
+    border: solid 2px var(--color-green);
+    box-shadow: none !important;
+}
+
+
+
+.appointment-page .btn{
+    width: 100%;
+}
+.appointment-page .btn:hover{
+    background-color: hsl(145, 63%, 20%);
+}
+.appointment-page label{
+    font-weight: 600;
+}
+.appointment-page .fa-phone{
+    color: var(--color-green);
+    margin-right: 8px;
+}
+
+.about{
+    padding: 50px 0 !important;
+}
+.about h2, .heading{
+    color: var(--color-green);
+    margin-bottom: 20px !important;
+}
+
+/* Doctors preview */
+.doctors-preview{
+    padding: 50px 0 !important;
+    background-color: hsl(210, 91%, 99%);
+}
+.doctors-preview h1{
+    color: var(--color-green);
+    margin-bottom: 20px !important;
+}
+
+.doctor-card img{
+    object-position: 0lvh;
+    object-fit: cover;
+    margin-bottom: 15px !important;
+}
+.doctor-card h5{
+    color: var(--color-green);
+    margin-bottom: 10px !important;
+}
+
+.dashboard-card .card-body{
+  height: 200px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.sidebar {
+  height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  padding-top: 30px;
+}
+
+.sidebar .nav-link {
+  color: #333;
+  padding: 12px 20px;
+  font-weight: 500;
+}
+
+.sidebar .nav-link.active,
+.sidebar .nav-link:hover {
+  background: #e9f7ef;
+  color: #198754;
+  border-radius: 8px;
+}
+
+/* Main Content */
+.main-content {
+  padding: 30px;
+}
+
+/* Cards */
+.dashboard-card {
+  border-left: 5px solid #198754;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.action-card {
+  text-align: center;
+  padding: 25px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.action-card i {
+  font-size: 32px;
+  color: #198754;
+}
+.action-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+
+
+/* View  Appointments page*/
+
+.view-appointments h2{
+    color: var(--color-green);
+}
+
+.view-appointments h5{
+    color: var(--color-green);
+}
+
+.view-appointments .status{
+    background-color: hsl(152, 97%, 87%);
+    color: var(--color-green);
+}
+
+/* About Page */
+.about-hero-section {
+  background: linear-gradient(135deg, rgba(13, 253, 41, 0.1), rgba(166, 192, 230, 0.1)), url(/static/image-3.jpg);
+  background-size: cover;
+  background-position:center;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+}
+
+.stat-box {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--color-green);
+}
+
+.stat-box span {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.info-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  height: 100%;
+}
+
+.feature-box {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  font-weight: 600;
+}
+
+.achievement {
+  background-color: #1c7d44;
+}
+
+
+
+
+
+/* EMERGENCY */
+.emergency-section {
+  background: linear-gradient(135deg, rgba(13, 253, 41, 0.3), rgba(166, 192, 230, 0.3)), url(/static/image-5.jpg);
+  background-size: cover;
+  background-position: center;
+
+  padding: 80px 0;
+}
+
+.info-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  height: 100%;
+}
+
+/* CONTACT */
+.contact-section {
+  background: #f8fafc;
+  padding: 80px 0;
+}
+.contact-section h2{
+    color: var(--color-green);
+}
+.contact-card {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+.contact-card .form-control:hover, .contact-card .form-control:focus{
+    border: solid 2px var(--color-green);
+    box-shadow: none !important;
+}
+
+/* BUTTON BRAND */
+.btn-success {
+  background-color: #1c7d44;
+  border-color: #1c7d44;
+}
+
+.btn-success:hover {
+  background-color: #145c33;
+}
+
+
+
+
+
+.footer {
+  background-color: #0f2a44; 
+  color: #cbd5e1;          
+  padding: 60px 0;
+}
+
+.footer-title {
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.footer-text {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #dbeafe;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #1c7d44; 
+}
+
+
+@media (max-width: 992px){
+    .sidebar{
+        position: fixed;
+        width: 250px;
+        height: 100%;
+        z-index: 999;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section-content{
+        width: 100% !important;
+    }
+    .hero-section{
+        height: 50vh;
+        background-position: center;
+        padding: 0 10px !important;
+        margin: 0 !important;
+    }
+       .hero-section h2, .hero-section h3, .about-hero-section h1, .emergency-section h1{
+      font-size: 30px !important;
+    }
+    .hero-section p, .about-hero-section p, .emergency-section p{
+      font-size: 15px !important;
+    }
+}

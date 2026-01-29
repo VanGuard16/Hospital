@@ -1,0 +1,131 @@
+{% extends 'dashbase.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Top Navbar -->
+<!-- Messages -->
+{% for message in messages %}
+  <div class="alert {% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% elif 'warning' in message.tags %}alert-warning{% elif 'info' in message.tags %}alert-info{% else %}alert-secondary{% endif %} alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endfor %}
+
+
+<div class="container-fluid">
+  <div class="row">
+
+    <!-- Sidebar -->
+     <aside class="col-lg-3 sidebar d-none d-lg-block">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'patients' %}">
+            <i class="bi bi-people"></i> 
+          Patients</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="bi bi-calendar-check"></i> Appointments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="bi bi-chat-dots"></i> Messages</a>
+        </li>
+      </ul>
+    </aside> 
+
+    <!-- Main Content -->
+    <main class="col-lg-9 main-content container">
+      <h3 class="mb-4">Welcome Dr. <span class="text-success">{{ user.get_full_name }}</span></h3>
+
+      <!-- Pending Requests -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card dashboard-card mb-4">
+            <div class="card-body">
+            <h5>Pending Requests</h5>
+
+              {% if pending_appointments %}
+              {% for appt in pending_appointments %}
+              <div>
+                <div class="row align-items-center shadow-sm py-2">
+                  <div class="col-8">
+                    <h6>{{ appt.patient.user.get_full_name }}</h6>
+                    <p class="mb-1">{{ appt.reason }}</p>
+                    <p>{{ appt.appointment_date|date:"j F" }} | <strong>{{ appt.appointment_time|time:"g:i A" }}</strong></p>
+                  </div>
+                  <div class="col-4">
+                    <a href="{% url 'confirm' appt.id %}" class="btn btn-success btn-sm"><i class="bi bi-check-circle-fill"></i></a>
+                    <a href="{% url 'cancel' appt.id %}" class="btn btn-success btn-sm"><i class="bi bi-x-circle"></i></a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+                {% else %}
+                <p>No pending appointment requests.</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <!-- Confirmed to conpleted -->
+        <div class="col-md-6">
+          <div class="card dashboard-card mb-4">
+            <div class="card-body">
+              <h5>Today's Appointments</h5>
+              <!-- Check if the upcoming appointments is today -->
+              {% if today_appointments %}
+              {% for appt in today_appointments %}
+              <div>
+                <div class="row align-items-center shadow-sm py-2">
+                  <div class="col-8">
+                    <h6>{{ appt.patient.user.get_full_name }}</h6>
+                    <p class="mb-1">{{ appt.reason }}</p>
+                    <p>{{ appt.appointment_date|date:"j F" }} | <strong>{{ appt.appointment_time|time:"g:i A" }}</strong></p>
+                  </div>
+                  <div class="col-4">
+                    <a href="{% url 'completed' appt.id %}" class="btn btn-success btn-sm">Mark as Completed</a>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+                {% else %}
+                <p>No appointments scheduled for today.</p>
+              {% endif %}
+            </div>
+          </div>
+      </div>
+
+      <!-- Upcoming Schedule -->
+      <div class="row">
+        <div class="col-md-7">
+          <div class="card action-card">
+            <div class="">
+              <h5>Upcoming Schedule</h5>
+              <ul class="list-group list-group-flush">
+                {% for appt in upcoming_appointments %}
+                  <li class="list-group-item">
+                    {{ appt.appointment_date|date:"F j, Y" }} at {{ appt.appointment_time|time:"g:i A" }} - {{ appt.patient.user.first_name }} {{ appt.patient.user.last_name }}
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-5">
+          <div class="card action-card">
+            <div class="card-body">
+              <h5>Quick Actions</h5>
+              <a href="#" class="btn btn-success btn-sm">Add Note</a>
+              <a href="{% url 'patients' %}" class="btn btn-outline-success btn-sm">View Patients</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+{% endblock %}

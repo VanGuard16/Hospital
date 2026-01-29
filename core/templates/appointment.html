@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Appointment {% endblock %}
+{% block content %}
+<div class="container appointment-page shadow">
+    <h1 class="mb-4">Book an Appointment</h1>
+    <p class="text-center">Fill out the form below to book an appointment with one of our specialists.</p>
+    <form class="appointment-form" method="post">
+        {% csrf_token %}
+        <div class="mb-2">
+            <label for="department" class="form-label">Select Department</label>
+            <select class="form-select" id="department" name="department">
+                <option selected>Select a department</option>
+                {% for department in departments %}
+                <option value="{{department.id}}">{{department}}</option>
+                {% endfor %}
+                
+            </select>
+        </div>
+        <div class="mb-2">
+            <label for="doctor" class="form-label">Select Doctor</label>
+            <select class="form-select" id="doctor" name="doctor">
+                <option selected>Select a doctor</option>
+            </select>
+        </div>  
+        <div class="mb-2">
+            <label for="date" class="form-label">Preferred Date</label>
+            <input type="date" class="form-control" id="date" name="date">
+        </div>
+        <div class="mb-2">
+            <label for="time" class="form-label">Preferred Time</label>
+            <input type="time" class="form-control" id="time" name="time">
+        </div>
+        <div class="mb-2">
+            <label for="reason" class="form-label">Reason For Visit</label>
+            <textarea class="form-control" id="message" name="reason" rows="5" required aria-required="true" placeholder="E.g Checkup"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-3">Book Appointment</button>
+    </form>
+    <p class="text-center pt-1"><i class="fa-solid fa-phone"></i>Need assistance? Call us at 123-456-7890</p>
+</div>
+{% endblock %}

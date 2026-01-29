@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="p-3">
+  <div class="container appointment-page shadow p-4 rounded-3">
+    <div class="text text-center py-3">
+      <h2>Welcome back</h2>
+      <p>Log in to manage your appointments and health records.</p>
+    </div>
+      <form action="" method="post" class="pb-3">
+          {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input type="text" class="form-control" name="username" aria-describedby="emailHelp" placeholder="Enter username">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" placeholder="Enter password">
+        </div>
+        {% if messages %}
+        {% for message in messages %}
+             <p class="text-danger text-left">
+                {{ message }}
+             </p>
+        {% endfor %}
+        {% endif %}
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+      </form>
+  </div>
+  <div>
+    <p class="text-center mt-3">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+  </div>
+</div>
+{% endblock %}

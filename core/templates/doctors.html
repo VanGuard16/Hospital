@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Our Doctors - Hospital{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- doctors -->
+    <div class="row g-3 my-3">
+     <h1 class="heading text-center">Our Doctors</h1>
+
+        {% for doctor in doctors %}
+        {% if doctor.photo %}
+        <div class="col-12 col-lg-3">
+            <div class="doctor-card shadow-sm rounded-2 bg-light-subtle text-center p-3">
+                <img src="{{ doctor.photo.url }}" alt="Doctor 1" class="img rounded-circle mb-3" width="120" height="120" loading="lazy">
+                <h5>Dr. {{ doctor.user.get_full_name }}</h5>
+                <p class="text-muted mb-1">{{ doctor.specialization }}</p>
+                <p class="text-secondary-emphasis">{{ doctor.experience_years }} years experience</p>
+                
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% include 'footer.html' %}
+{% endblock %}

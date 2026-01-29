@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container appointment-page shadow">
+    <h1 class="mb-4">Complete Registration</h1>
+    <p class="text-center">Fill out the form below to book an appointment with one of our specialists.</p>
+    <form class="appointment-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- date of birth -->
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" name="date_of_birth" aria-describedby="emailHelp" placeholder="Enter Your Date of Birth" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Blood Group</label>
+          <input type="text" class="form-control" name="blood_group" aria-describedby="emailHelp" placeholder="Enter Your Blood Group" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Age</label>
+          <input type="number" class="form-control" name="age" aria-describedby="emailHelp" placeholder="Enter Your Age" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Emergency Contact</label>
+          <input type="phone" class="form-control" name="emergency_contact" aria-describedby="emailHelp" placeholder="Enter Emergency Contact" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+    <p class="text-center pt-1"><i class="fa-solid fa-phone"></i>Need assistance? Call us at 123-456-7890</p>
+</div>
+{% endblock %}

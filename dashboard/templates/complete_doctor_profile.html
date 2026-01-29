@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container appointment-page shadow">
+    <h1 class="mb-4">Complete Registration</h1>
+    <p class="text-center">Fill out the form below to book an appointment with one of our specialists.</p>
+    <form class="appointment-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-2">
+            <label for="department" class="form-label">Select Department</label>
+            <select class="form-select" id="department" name="department" required>
+                <option selected>Select a department</option>
+                {% for department in departments %}
+                <option value="{{department.id}}">{{department}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Profile</label>
+          <input type="file" class="form-control" name="photo" aria-describedby="emailHelp" placeholder="Choose Your Photo" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Specialization</label>
+          <input type="text" class="form-control" name="specialization" aria-describedby="emailHelp" placeholder="Enter Your Specialization" required>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Experience</label>
+          <input type="number" class="form-control" name="experience" aria-describedby="emailHelp" placeholder="Enter Years of Experience" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </form>
+    <p class="text-center pt-1"><i class="fa-solid fa-phone"></i>Need assistance? Call us at 123-456-7890</p>
+</div>
+{% endblock %}

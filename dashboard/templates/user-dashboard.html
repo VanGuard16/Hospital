@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}User Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- Messages -->
+{% for message in messages %}
+  <div class="alert {% if 'success' in message.tags %}alert-success{% elif 'error' in message.tags %}alert-danger{% elif 'warning' in message.tags %}alert-warning{% elif 'info' in message.tags %}alert-info{% else %}alert-secondary{% endif %} alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endfor %}
+
+
+<div class="container-fluid mt-5">
+  <div class="row">
+    <!-- Main Content -->
+    <main class="container col-lg-9 main-content">
+      <h3 class="mb-4">Welcome, <span class="text-success">{{ user.get_full_name }}</span> 👋</h3>
+
+      <!-- Upcoming Appointment -->
+      <div class="card dashboard-card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Upcoming Appointment</h5>
+          {% if next_appointment %}
+            <p class="mb-1"><strong>Doctor:</strong>
+                {% if next_appointment.doctor %}
+                {{ next_appointment.doctor }}
+                {% else %}
+                Awaiting confirmation
+                {% endif %}
+            </p>
+
+            <p class="mb-1"><strong>Date:</strong> {{ next_appointment.appointment_date|date:"F j, Y" }}</p>
+            <p class="mb-1"><strong>Time:</strong> {{ next_appointment.appointment_time|time:"g:i A" }}</p>
+            <p class="mb-1 text-capitalize"><strong>Status:</strong> {{ next_appointment.status }}</p>
+            <a class="btn btn-success btn-sm">View Details</a>
+            <a class="btn btn-outline-danger btn-sm" href="{% url 'cancel' next_appointment.id %}">Cancel</a>
+            {% else %}
+            <p class="mb-1">No upcoming appointments</p>
+          {% endif %}
+
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="row">
+        <div class="col-md-4">
+          <a href="{% url 'appointment' %}" class="text-decoration-none">
+            <div class="card action-card">
+              <i class="bi bi-calendar-plus"></i>
+              <h6>Book Appointment</h6>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="{% url 'view_appointments' %}" class="text-decoration-none">
+            <div class="card action-card">
+              <i class="bi bi-file-earmark-medical"></i>
+              <h6>View Appointments</h6>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <div class="card action-card">
+            <i class="bi bi-chat-dots"></i>
+            <h6>Contact Doctor</h6>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+{% endblock %}
